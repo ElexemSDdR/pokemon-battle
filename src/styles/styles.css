@@ -1,0 +1,91 @@
+:root {
+  --main-font-size: 4.5rem;
+  /*Defining the message part properties*/
+  --message-background-color: #29506a;
+  --message-text-color: #fffaff;
+  --message-text-shadow-color: #6c5a75;
+  --message-border-poperties: 8px solid #e6dae6;
+  --message-border-radius: 5px;
+}
+
+@font-face {
+  font-family: 'Pokemon';
+  src: url("../assets/Pokemon.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pokemon';
+  box-sizing: border-box;
+}
+
+.battle_display {
+  display: grid;
+  grid-template-rows: 1fr 200px;
+  height: 100dvh;
+}
+
+.pokemons_on_battle {
+  background-color: red;
+}
+
+.battle_options {
+  /*Configurating the first options of the battle (the what will do message and the attack, bag, run and pokemon options)*/
+  .options_part {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+
+    .what_will_do {
+      display: grid;
+      height: 100%;
+      width: 50%;
+      place-items: center;
+      text-wrap: wrap;
+      padding-left: 45px;
+      
+      p {
+        width: 100%;
+        padding-left: 20px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        word-spacing: 15px;
+        font-size: var(--main-font-size);
+        text-align: left;
+        border-top: var(--message-border-poperties);
+        border-bottom: var(--message-border-poperties);
+        border-left: var(--message-border-poperties);
+        border-top-left-radius: var(--message-border-radius);
+        border-bottom-left-radius: var(--message-border-radius);
+        background-color: var(--message-background-color);
+        color: var(--message-text-color);
+        text-shadow: var(--message-text-shadow-color) 4px 3px;
+      }
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 8px;
+      column-gap: 5rem;
+      height: 100%;
+      width: 50%;
+      padding-block: 30px;
+      padding-left: 5rem;
+      
+      button {
+        border: none;
+        background: transparent;
+        text-align: left;
+        font-size: var(--main-font-size);
+      }
+    }
+  }
+}
