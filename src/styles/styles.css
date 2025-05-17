@@ -6,6 +6,7 @@
   --message-text-shadow-color: #6c5a75;
   --message-border-poperties: 8px solid #e6dae6;
   --message-border-radius: 5px;
+  --message-border-container-properties: 8px solid #2C3435;
 }
 
 @font-face {
@@ -49,7 +50,11 @@
       width: 50%;
       place-items: center;
       text-wrap: wrap;
-      padding-left: 45px;
+      padding-left: 15px;
+      border-top: var(--message-border-container-properties);
+      border-bottom: var(--message-border-container-properties);
+      border-left: var(--message-border-container-properties);
+      background-color: #CCB03F;
       
       p {
         width: 100%;
