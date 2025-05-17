@@ -12,14 +12,18 @@ const MOVES_PART = ``
 
 const OPTIONS_PART = `
   <section class="options_part">
-    <section class="what_will_do">
-      ${whatWillDoMessage(pkmnName)}
+    <section class="message-box">
+      <section class="what_will_do">
+        ${whatWillDoMessage(pkmnName)}
+      </section>
     </section>
     <section class="options">
-      <button>FIGHT</button>
-      <button>BAG</button>
-      <button>POKéMON</button>
-      <button>RUN</button>
+      <section class="buttons">
+        <button>FIGHT</button>
+        <button>BAG</button>
+        <button>POKéMON</button>
+        <button>RUN</button>
+      </section>
     </section>
   </section>
 `
