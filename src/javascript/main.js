@@ -18,11 +18,13 @@ const OPTIONS_PART = `
       </section>
     </section>
     <section class="options">
-      <section class="buttons">
-        <button>FIGHT</button>
-        <button>BAG</button>
-        <button>POKéMON</button>
-        <button>RUN</button>
+      <section class="first-border">
+        <section class="buttons">
+          <button>FIGHT</button>
+          <button>BAG</button>
+          <button>POKéMON</button>
+          <button>RUN</button>
+        </section>
       </section>
     </section>
   </section>
