@@ -3,6 +3,7 @@
 
   /* Some colors */
   --gray-color: #2C3435;
+
   /* Defining the message part properties */
   --message-background-color: #29506a;
   --message-text-color: #fffaff;
@@ -10,7 +11,7 @@
   --message-border-poperties: 8px solid #e6dae6;
   --message-border-radius: 5px;
   --message-border-container-properties: 8px solid #2C3435;
-  --message-border-container-radius: 8px;
+  --message-border-container-radius: 15px;
 
   /* Options part properties */
   --options-text-shadow-properties: #d5d2cd 4px 3px;
@@ -57,7 +58,7 @@
     height: 100%;
     
     /* The styles for the box of the message "What will <Pokémon> do?" */
-    .message-box{
+    .message_box{
       padding-block: 12px;
       width: 50%;
       padding-left: 15px;
@@ -95,16 +96,20 @@
       width: 50%;
       height: 100%;
       background-color: #fffaff;
-      padding: 5px;
+      display: flex;
+      justify-content: center;
+      padding: 3px;
+      
 
       /* Here's the first border configurator and the options to load well the second border. This border has the top border taller than the others */
-      .first-border {
+      .first_border {
           border-inline: var(--options-normal-borders-options);
           border-top: var(--options-normal-borders-options);
           border-bottom: var(--options-taller-borders-options);
           border-radius: var(--message-border-container-radius);
           margin: 5px;
           padding: 5px;
+          width: 100%;
 
         /* Here the options for the second border (that has the bottom border taller than the others) and put the options button in its places (make the grid for each button) */
         .buttons{
@@ -129,6 +134,12 @@
             background: transparent;
             text-align: left;
             font-size: var(--main-font-size);
+
+            &:hover,
+            &:active,
+            &:focus {
+              background-color: red;
+            {
           }      
         }
       }

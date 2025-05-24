@@ -2,22 +2,31 @@ import { whatWillDoMessage } from "./functions.js"
 export const pkmnName = "CHARMANDER"
 
 // HTML rendering parts
-export const MOVES_PART = ``
+export const MOVES_PART = `
+  <section class="attack_container">
+    <section class="moves">
+      
+    </section>
+    <section class="moves_info">
+
+    </section>
+  </section>
+`
 
 export const OPTIONS_PART = `
   <section class="options_part">
-    <section class="message-box">
+    <section class="message_box">
       <section class="what_will_do">
         ${whatWillDoMessage(pkmnName)}
       </section>
     </section>
     <section class="options">
-      <section class="first-border">
+      <section class="first_border">
         <section class="buttons">
-          <button>FIGHT</button>
-          <button>BAG</button>
-          <button>POKéMON</button>
-          <button>RUN</button>
+          <button class="options_buttons" id="fight-b">FIGHT</button>
+          <button class="options_buttons" id="bag-b">BAG</button>
+          <button class="options_buttons" id="pokemon-b">POKéMON</button>
+          <button class="options_buttons" id="run-b">RUN</button>
         </section>
       </section>
     </section>
