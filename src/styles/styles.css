@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: 'Pokemon';
-  src: url("../assets/Pokemon.woff") format("woff");
+  src: url("/Pokemon.woff") format("woff");
   font-style: normal;
   font-weight: normal;
 }

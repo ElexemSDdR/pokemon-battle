@@ -1,14 +1,23 @@
 {
-  "name": "pokemon_battle",
+  "name": "pokemon-battle",
   "version": "1.0.0",
-  "type": "module",
   "description": "",
-  "main": "main.js",
+  "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --watch ./dist/back/app.js",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.17.0",
+  "dependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.5.2",
+    "express": "5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
 }

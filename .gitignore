@@ -1,4 +1,8 @@
 # Folders
 .vscode/
 node-modules/
+dist/
+
+# Env variables
+.env
 
