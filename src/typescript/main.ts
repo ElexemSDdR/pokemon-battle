@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded',() => {
     ESCAPE
   } = KEYS
 
-  const $options_buttons: HTMLButtonElement[] = $$('.options_buttons')
+  let $options_buttons: HTMLButtonElement[] = $$('.options_buttons')
   let focusedButtonIndex = 0
   document.addEventListener('keyup', (e) => {
     if (e.key === ARROW_RIGHT) {
@@ -70,8 +70,9 @@ document.addEventListener('DOMContentLoaded',() => {
       renderBattleOrAttackOptions()
     } else if (e.key === ESCAPE && attack_mode === true) {
       attack_mode = false
-      $options_buttons[focusedButtonIndex]?.focus()
       renderBattleOrAttackOptions()
+      $options_buttons = $$('.options_buttons')
+      $options_buttons[0]?.focus()
     }
     console.log(focusedButtonIndex, attack_mode, e.key)
   })

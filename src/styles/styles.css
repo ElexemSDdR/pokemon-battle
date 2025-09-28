@@ -117,7 +117,7 @@
           height: 100%;
           width: 100%;
           grid-template-columns: 1fr 1fr;
-          row-gap: 5px;
+          row-gap: 10px;
           padding-block: 14px;
           padding-left: 5rem;
           background-color: #fffaff;
@@ -129,6 +129,7 @@
           /* The options for each button of the options */
           button {
             border: none;
+            position: relative;
             color: var(--gray-color);
             text-shadow: var(--options-text-shadow-properties);
             background: transparent;
@@ -138,8 +139,17 @@
             &:hover,
             &:active,
             &:focus {
-              background-color: red;
-            {
+              outline: none;
+
+              &::before {
+                content: "◢";
+                position: absolute;
+                rotate: -45deg;
+                font-size: 40px;
+                left: -22%;
+                top: 16%;
+              }
+            }
           }      
         }
       }
