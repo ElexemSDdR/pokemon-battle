@@ -1,8 +1,6 @@
 import { 
   $battle_options, 
   $pokemons_on_battle, 
-  $,
-  $$
 } from './DomElements.js'
 
 import { 
@@ -23,11 +21,11 @@ let attack_mode = false
 
 const renderBattleOrAttackOptions = () => {
   if (!attack_mode) {
-    $battle_options.innerHTML = OPTIONS_PART
+    $battle_options!.innerHTML = OPTIONS_PART
     return
     // load the options part
   } else {
-    $battle_options.innerHTML = MOVES_PART
+    $battle_options!.innerHTML = MOVES_PART
     return
     // load the moves part
   }
@@ -54,7 +52,7 @@ document.addEventListener('DOMContentLoaded',() => {
     ESCAPE
   } = KEYS
 
-  let $options_buttons: HTMLButtonElement[] = $$('.options_buttons')
+  let $options_buttons: HTMLButtonElement[] = [...document.querySelectorAll<HTMLButtonElement>('.options_buttons')]
   let focusedButtonIndex = 0
   document.addEventListener('keyup', (e) => {
     if (e.key === ARROW_RIGHT) {
@@ -71,7 +69,7 @@ document.addEventListener('DOMContentLoaded',() => {
     } else if (e.key === ESCAPE && attack_mode === true) {
       attack_mode = false
       renderBattleOrAttackOptions()
-      $options_buttons = $$('.options_buttons')
+      $options_buttons = [...document.querySelectorAll<HTMLButtonElement>('.options_buttons')]
       $options_buttons[0]?.focus()
     }
     console.log(focusedButtonIndex, attack_mode, e.key)

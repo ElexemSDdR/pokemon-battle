@@ -7,7 +7,7 @@ const PORT = 3000
 
 const app = express()
 
-app.use(express.static(path.join(dirname, 'dist/typescript/')))
+app.use(express.static(path.join(dirname, 'dist/functionalities')))
 app.use(express.static(path.join(dirname, 'src/styles/')))
 app.use(express.static(path.join(dirname, 'src/assets/')))
 app.use(express.static(path.join(dirname, 'public/')))
