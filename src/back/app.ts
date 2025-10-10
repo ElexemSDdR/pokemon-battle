@@ -1,6 +1,7 @@
 import { type Request, type Response } from 'express'
 import express from 'express'
 import path from 'node:path'
+import pokemon from './routes/pokemons.js'
 
 const dirname = path.resolve()
 const PORT = 3000
@@ -15,6 +16,8 @@ app.use(express.static(path.join(dirname, 'public/')))
 app.get('/', (req: Request, res: Response) => {
   res.sendFile(path.join(dirname, 'src/pages/index.html'))
 })
+
+app.get('/pokemon', pokemon)
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`)

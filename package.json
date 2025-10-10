@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch ./dist/back/app.js",
-    "build": "tsc"
+    "build": "rm -rf ./dist/ && tsc"
   },
   "keywords": [],
   "author": "",
