@@ -1,26 +1,12 @@
-import type { Pokemon, Ability, Type, Move, Stat } from 'env.d'
+import type { Pokemon, Ability, Type, Move, Stat, FetchError } from 'env.d'
+import { error } from 'node:console'
 
-export const pokemonsData = async () => {
-  try {
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1350&offset=0')
-    const pokemons = await response.json()
-    return pokemons
-  }
-  catch (e) {
-    console.error(`Error fetching Pokémon data: ${e}`);
-  }
-  return
-}
-
-export const pokemonData = async (pokemonName: string) => {
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
-  const pokemon: Pokemon = await response.json()
-  const pokemonDataReduced = {
+const reducePokemonData = (pokemon: any): Pokemon => {
+  const pokemonDataReduced: Pokemon = {
     name: pokemon.name,
     id: pokemon.id,
     height: pokemon.height,
-    weight: pokemon.weight,
-    front_sprites: [
+    weight: pokemon.weight, front_sprites: [
       pokemon.sprites.versions['generation-v']['black-white'].animated.front_default,
       pokemon.sprites.versions['generation-v']['black-white'].animated.front_shiny
     ],
@@ -37,4 +23,31 @@ export const pokemonData = async (pokemonName: string) => {
     })),
   }
   return pokemonDataReduced
+}
+
+export const pokemonsData = async () => {
+  try {
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=1350&offset=0')
+    const pokemons = await response.json()
+    return pokemons
+  }
+  catch (e) {
+    console.error(`Error fetching Pokémon data: ${e}`);
+  }
+  return
+}
+
+export const pokemonData = async (pokemonName: string): Pokemon => {
+  try {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`)
+    const pokemon: Pokemon = await response.json()
+    const pokemonDataReduced = reducePokemonData(pokemon) 
+    return pokemonDataReduced
+  } catch (e) {
+    console.error(`Error fetching pokémon data: ${e}`)
+    const fetchError: FetchError = { 
+        error: `Error fetching the Pokémon data: ${e}`
+      }
+    return fetchError
+  }
 }

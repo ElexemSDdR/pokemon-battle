@@ -5,9 +5,7 @@ export const pkmnName = "CHARMANDER"
 export const MOVES_PART = `
   <section class="attack_container">
     <section class="moves">
-      
 
-k
     </section>
     <section class="moves_info">
 

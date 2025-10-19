@@ -156,3 +156,20 @@
     }
   }
 }
+
+#pokemon_selector {
+  select {
+    font-size: 2em;
+    font-weight: 500;
+    width: 160px;
+    height: 40px;
+
+  }
+
+  /* #your_pokemon { */
+  /* } */
+  /**/
+  /* #enemie_pokemon { */
+  /**/
+  /* } */
+} 

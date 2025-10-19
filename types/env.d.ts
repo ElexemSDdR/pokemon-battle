@@ -40,6 +40,13 @@ type Ability = {
   slot: number
 }
 
+export interface AllPokemons {
+  count: number
+  next: null
+  previous: null
+  results: Result[]
+}
+
 export interface Pokemon {
   id: number
   name: string
@@ -55,3 +62,6 @@ export interface Pokemon {
   }[]
 }
 
+export interface FetchError {
+  error: string
+}
