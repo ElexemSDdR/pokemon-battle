@@ -173,3 +173,22 @@
   /**/
   /* } */
 } 
+
+/* .form_of_select_pokemon_section { */
+/**/
+/* } */
+
+form {
+  display: grid;
+  place-items: center;
+   
+  section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  input {
+    align-self: flex-end;
+  }
+}

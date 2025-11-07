@@ -2,6 +2,8 @@ import {
   $battleOptions,
   $yourPokemon,
   $enemiePokemon,
+  $dialogSelectPokemon,
+  $selectPokemonForm
 } from './DomElements.js'
 
 import {
@@ -12,8 +14,8 @@ import {
 import {
   attackMode,
 } from './main.js'
-import type { AllPokemons, Result } from '../../types/env.js'
 
+import type { AllPokemons, Result } from '../../types/env.js'
 
 export const whatWillDoMessage = (pkmnName: string) => {
   return `<p>What will<br>${pkmnName} do?</p>`
@@ -71,30 +73,36 @@ export const renderBattleOrAttackOptions = () => {
   }
 }
 
-export const setSelects = (multiplierLimit = 1) => {
+export const setSelects = () => {
+  /*
+   * CHANGE: All the comment code is old, I thought this was more performant and efficient but wasn't, do the fetch directly is better
+   *
   // The final limit should be 1350
-  let limit = 135
-  let offset = 0
-  let multiplierVar = multiplierLimit
+  // let limit = 135
+  // let offset = 0
+  // let multiplierVar = multiplierLimit
+  */
   let options: string = ""
 
-  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit * multiplierVar}&offset=${multiplierLimit === 1 ? offset : offset + (limit * multiplierVar) - limit}`)
-  .then((rta) =>  rta.json())
-  .then((pokemon: AllPokemons) => {
-    pokemon.results.forEach((name: Result) => {
-        // $yourPokemon.innerHTML += `<option>${name.name}</option>`
-        // $enemiePokemon.innerHTML += `<option>${name.name}</option>`
+  // fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit * multiplierVar}&offset=${multiplierLimit === 1 ? offset : offset + (limit * multiplierVar) - limit}`)
+  fetch(`https://pokeapi.co/api/v2/pokemon/?limit=1350&offset=0`)
+    .then((rta) =>  rta.json())
+    .then((pokemon: AllPokemons) => {
+      pokemon.results.forEach((name: Result) => {
+        // $yourPokemon.innerHTML += `<option value="${name.name}">${name.name}</option>`
+        // $enemiePokemon.innerHTML += `<option value="${name.name}">${name.name}</option>`
         //
         // options += `<option>${name.name}</option>\n`
         // return options
-        options += `<option>${name.name}</option>\n`
+        options += `<option value="${name.name}">${name.name}</option>\n`
+      })
+      if ($yourPokemon && $enemiePokemon) {
+        $yourPokemon.innerHTML += options
+        $enemiePokemon.innerHTML += options
+      }
+      // if (multiplierLimit === 10) return
+      // setSelects(multiplierLimit + 1)
     })
-    $yourPokemon.innerHTML += options
-    $enemiePokemon.innerHTML += options
-    if (multiplierLimit === 10) return
-    setSelects(multiplierLimit + 1)
-  })
-  
 }
 
 export const choosePokemons = (yourPokemon: string, enemiePokemon: string) => {

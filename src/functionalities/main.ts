@@ -21,7 +21,7 @@ import {
 // default this state is false
 export let attackMode = false
 
-renderBattleOrAttackOptions()
+// renderBattleOrAttackOptions()
 setSelects()
 
 const KEYS = {
@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded',() => {
       $optionButtons = [...document.querySelectorAll<HTMLButtonElement>('.options_buttons')]
       $optionButtons[0]?.focus()
     }
-    console.log(focusedButtonIndex, attackMode, e.key)
   })
   $optionButtons[focusedButtonIndex]?.focus()
 })

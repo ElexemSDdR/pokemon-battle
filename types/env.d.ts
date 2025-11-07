@@ -12,7 +12,9 @@ type Sprites = {
   front_default: string
   other: { 
     'official-artwork': 
-    { front_default: string } 
+      { 
+        front_default: string 
+      } 
   }
   versions: {
     'generation-v': {
@@ -47,14 +49,21 @@ export interface AllPokemons {
   results: Result[]
 }
 
-export interface Pokemon {
+export interface IPokemon {
   id: number
   name: string
   height: number
   weight: number
   abilities: Ability[]
   types: Type[]
-  sprites: Sprites
+  front_sprites: [
+    Sprites['versions']['generation-v']['black-white']['animated']['front_default'],
+    Sprites['versions']['generation-v']['black-white']['animated']['front_shiny'],
+  ]
+  back_sprites: [
+    Sprites['versions']['generation-v']['black-white']['animated']['back_default'],
+    Sprites['versions']['generation-v']['black-white']['animated']['back_shiny'],
+  ]
   moves: Move[]
   stats: { 
     base_stat: number, 
